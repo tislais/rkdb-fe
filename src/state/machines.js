@@ -15,14 +15,17 @@ export const useMachines = () => {
 
 export const useSearch = (term) => {
 
-  const [loading, setLoading] = useState(true);
   const [machines, setSearchMachines] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+
     fetchSearchMachine(term).then(setSearchMachines)
     .finally(() => setLoading(false));
-  }, []);
+  }
 
-  return { machines, loading };
+  console.log(machines);
+  return { machines, loading, onFormSubmit };
 
 }

@@ -6,11 +6,13 @@ const Search = () => {
   const [term, setTerm] = useState();
   const [loading, setLoading] = useState();
 
+  const { onFormSubmit } = useSearch(term);
+
   if(loading) return <h1>Loading...</h1>;
 
   return (
     <>
-      <form onSubmit={????}>
+      <form onSubmit={onFormSubmit}>
         <input 
           placeholder="Search OPDB..."
           type="text"
@@ -19,9 +21,7 @@ const Search = () => {
           onChange={({ target }) => setTerm(target.value)} />
         <button>Go</button>
       </form>
-      <p>
-        {term}
-      </p>
+      
     </>
   )
 };
