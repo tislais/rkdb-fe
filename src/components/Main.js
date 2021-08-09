@@ -1,4 +1,5 @@
 import React from 'react';
+import MachinesList from './MachinesList';
 
 const Main = () => {
 
@@ -8,9 +9,7 @@ const Main = () => {
         <h2 className={h2}>rkdb 
           <span className={span}> Arcadabase</span>
         </h2>
-        <ul>
-          <li>List</li>
-        </ul>
+        <MachinesList />
       </section>
     </main>
   )
