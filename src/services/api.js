@@ -5,7 +5,7 @@ export const fetchMachines = async () => {
 }
 
 
-export const fetchOpdbMachine = async (term) => {
+export const fetchSearchMachine = async (term) => {
   const res = await fetch(`https://opdb.org/api/search?api_token=${process.env.REACT_APP_OPDB_KEY}&q=${term}`);
 
   return res.json();

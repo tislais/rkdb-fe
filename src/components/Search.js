@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
+import { useSearch } from '../state/machines';
 
 const Search = () => {
 
-  const [search, setSearch] = useState();
+  const [term, setTerm] = useState();
+  const [loading, setLoading] = useState();
+
+  if(loading) return <h1>Loading...</h1>;
 
   return (
     <>
-      <form>
+      <form onSubmit={????}>
         <input 
           placeholder="Search OPDB..."
           type="text"
           name="term"
-          value={search}
-          onChange={({ target }) => setSearch(target.value)} />
+          value={term}
+          onChange={({ target }) => setTerm(target.value)} />
+        <button>Go</button>
       </form>
       <p>
-        {search}
+        {term}
       </p>
     </>
   )
