@@ -13,19 +13,42 @@ export const useMachines = () => {
   return { machines, loading };
 };
 
-export const useSearch = (term) => {
+export const useSearch = () => {
 
-  const [machines, setSearchMachines] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [searchMachines, setSearchMachines] = useState([]);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [term, setTerm] = useState('');
 
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-
-    fetchSearchMachine(term).then(setSearchMachines)
-    .finally(() => setLoading(false));
+  const onInputChange = ({ target }) => {
+    setTerm(target.value);
   }
 
-  console.log(machines);
-  return { machines, loading, onFormSubmit };
+  const onFormSubmit = async (e) => {
+    e.preventDefault();
+    setSearchLoading(true);
+
+    await fetchSearchMachine(term).then(setSearchMachines)
+    .finally(() => setSearchLoading(false));
+
+    setTerm('');
+  }
+
+  return { 
+    searchMachines, 
+    searchLoading, 
+    onFormSubmit, 
+    onInputChange, 
+    term, 
+    setTerm
+  };
+
+}
+
+export const useSearchResultMachine = () => {
+  const onAddButtonClick = () => {
+    console.log('hi')
+  }
+
+  return onAddButtonClick;
 
 }

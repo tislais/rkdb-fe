@@ -1,7 +1,21 @@
-import React from 'react';
+// import React from 'react';
 
-const SearchList = () => {
-  return null;
-}
+// const SearchList = ({ machines }) => {
+//   const MachineElements = machines.map((machine, i) => (
+//       <li key={i}>{machine.name}</li>
+//     ))
 
-export default SearchList;
+//   if (MachineElements) {
+//     return (
+//       <ul>
+//         {MachineElements}
+//       </ul>
+//     )
+//   }
+
+//   return (
+//     <h1>Search for something, ya ding dong!</h1>
+//   )
+// }
+
+// export default SearchList;

@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
-import { useSearch } from '../state/machines';
+import React from 'react';
+// import { useSearch } from '../state/machines';
+// import SearchList from './SearchList';
 
-const Search = () => {
-
-  const [term, setTerm] = useState();
-  const [loading, setLoading] = useState();
-
-  const { onFormSubmit } = useSearch(term);
-
-  if(loading) return <h1>Loading...</h1>;
+const Search = ({ onFormSubmit, onInputChange, term }) => {
 
   return (
     <>
@@ -18,10 +12,9 @@ const Search = () => {
           type="text"
           name="term"
           value={term}
-          onChange={({ target }) => setTerm(target.value)} />
+          onChange={onInputChange} />
         <button>Go</button>
       </form>
-      
     </>
   )
 };
