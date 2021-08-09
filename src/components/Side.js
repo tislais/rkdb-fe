@@ -4,8 +4,8 @@ const Side = () => {
   return (
     <nav className={nav}>
       <ul className={ul}>
-        <li className={li + selected}>My Machines</li>
-        <li className={li}>Search</li>
+        <li className={li + selected}>Search</li>
+        <li className={li}>My Machines</li>
       </ul>
     </nav>
   )
