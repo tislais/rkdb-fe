@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import { fetchMachines, fetchSearchMachine } from '../services/api';
+import { useState } from 'react';
+import { fetchSearchMachine } from '../services/api';
 
-export const useMachines = () => {
-  const [loading, setLoading] = useState(true);
-  const [machines, setMachines] = useState([]);
+// export const useMachines = () => {
+//   const [loading, setLoading] = useState(true);
+//   const [machines, setMachines] = useState([]);
 
-  useEffect(() => {
-    fetchMachines().then(setMachines)
-    .finally(() => setLoading(false));
-  }, []);
+//   useEffect(() => {
+//     fetchMachines().then(setMachines)
+//     .finally(() => setLoading(false));
+//   }, []);
 
-  return { machines, loading };
-};
+//   return { machines, loading };
+// };
 
 export const useSearch = () => {
 
@@ -19,7 +19,7 @@ export const useSearch = () => {
   const [searchLoading, setSearchLoading] = useState(false);
   const [term, setTerm] = useState('');
 
-  const onInputChange = ({ target }) => {
+  const handleInputChange = ({ target }) => {
     setTerm(target.value);
   }
 
@@ -37,18 +37,13 @@ export const useSearch = () => {
     searchMachines, 
     searchLoading, 
     onFormSubmit, 
-    onInputChange, 
+    handleInputChange, 
     term, 
     setTerm
   };
 
 }
 
-export const useSearchResultMachine = () => {
-  const onAddButtonClick = () => {
-    console.log('hi')
-  }
-
-  return onAddButtonClick;
-
+export const useSearchResults = () => {
+  
 }

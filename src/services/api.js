@@ -18,9 +18,21 @@ export const fetchRkdbMachines = async () => {
 }
 
 export const addMachine = async (machine) => {
+  console.log(machine.images[0].urls.large);
+
+  const mungedMachine = {
+    name: machine.name,
+    manufacturer: machine.manufacturer.name,
+    image: machine.images[0].urls.large,
+    date: machine.manufacture_date,
+    type: machine.type
+  }
+
   const res = await request
-    .post('/api/v1/machines')
-    .send(machine);
+    .post('http://localhost:7890/api/v1/machines')
+    .send(mungedMachine);
+
+  console.log(res);
 
   return res.body;
 }
