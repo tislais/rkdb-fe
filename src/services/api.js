@@ -13,7 +13,7 @@ export const fetchSearchMachine = async (term) => {
 };
 
 export const fetchRkdbMachines = async () => {
-  const res = await fetch('http://localhost:7890/api/v1/machines');
+  const res = await fetch('https://limitless-fortress-58640.herokuapp.com/api/v1/machines');
   return res.json();
 }
 

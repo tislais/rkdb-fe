@@ -12,6 +12,7 @@ const MyMachineDetails = () => {
   const history = useHistory();
 
   if(loading) return <h1>Loading...</h1>
+  console.log(machine);
   if(!machine) return <Redirect to="/machines" />
 
   const handleDeleteButtonClick = async () => {
