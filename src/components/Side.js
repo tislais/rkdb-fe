@@ -1,11 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Side = () => {
   return (
     <nav className={nav}>
       <ul className={ul}>
-        <li className={li + selected}>Search</li>
-        <li className={li}>My Machines</li>
+        <NavLink exact to="/" activeClassName={active} className={navlink}><li className={li}>Search</li></NavLink>
+        <NavLink exact to="/machines" activeClassName={active} className={navlink}><li className={li}>My Machines</li></NavLink>
       </ul>
     </nav>
   )
@@ -55,7 +56,6 @@ const li = `
   py-2
 
   lg:text-left
-  lg:mb-2
   lg:text-gray-100
   lg:text-lg
 
@@ -65,10 +65,13 @@ const li = `
   2xl:font-light
 `;
 
-const selected = `
+const active = `
   bg-white 
   bg-opacity-10 
   2xl:text-white
+  rounded-full
 `;
+
+const navlink = `w-full`;
 
 export default Side;
