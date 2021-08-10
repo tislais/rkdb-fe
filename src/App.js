@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Side from './components/Side';
+import Main from './components/Main';
+import MyMachines from './components/MyMachines';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import MyMachineDetails from './components/MyMachineDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <div className={div}>
+        <Side />
+
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/machines" component={MyMachines} />
+          <Route exact path="/machines/:id" component={MyMachineDetails} />
+        </Switch>
+        
+        </div>
+    </ Router>
   );
 }
+
+const div = `
+  h-full 
+  w-full
+  grid 
+  grid-cols-12 
+  xl:max-w-screen-xl
+  mx-auto
+`;
 
 export default App;
