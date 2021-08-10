@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { addMachine } from '../services/api.js';
 import { useSearch } from '../state/machines.js';
 import Search from './Search';
@@ -16,8 +17,11 @@ const MachinesList = () => {
   } = useSearch();
   const [displayData, setDisplayData] = useState([]);
 
+  const history = useHistory();
+
   const handleAddButtonClick = async () => {
     await addMachine(machine);
+    history.push('/machines');
   }
 
   useEffect(() => {

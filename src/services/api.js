@@ -19,8 +19,6 @@ export const fetchRkdbMachines = async () => {
 
 export const addMachine = async (machine) => {
 
-  console.log(machine)
-
   let imageUrl = null;
   if (machine.images.length > 0) {
     imageUrl = machine.images[0].urls.large;
@@ -37,21 +35,33 @@ export const addMachine = async (machine) => {
   console.log(mungedMachine);
 
   const res = await request
-    .post('http://localhost:7890/api/v1/machines')
+    .post('https://limitless-fortress-58640.herokuapp.com/api/v1/machines')
     .send(mungedMachine);
 
 
   return res.body;
 }
 
+export const updateMachine = async (id, body) => {
+
+  const serial = {
+    serial: body
+  }
+
+  const res = await request
+    .put(`https://limitless-fortress-58640.herokuapp.com/api/v1/machines/${id}`)
+    .send(serial);
+
+  return res.body;
+}
+
 export const deleteMachine = async (id) => {
   const res = await request
-    .delete(`http://localhost:7890/api/v1/machines/${id}`);
-    console.log(res);
+    .delete(`https://limitless-fortress-58640.herokuapp.com/api/v1/machines/${id}`);
     return res.json();
 }
 
 export const fetchRkdbMachine = async (id) => {
-  const res = await fetch(`http://localhost:7890/api/v1/machines/${id}`);
+  const res = await fetch(`https://limitless-fortress-58640.herokuapp.com/api/v1/machines/${id}`);
   return res.json();
 }

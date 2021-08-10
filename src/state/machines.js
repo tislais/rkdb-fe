@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { fetchRkdbMachine, fetchRkdbMachines, fetchSearchMachine } from '../services/api';
 
 // export const useMachines = () => {
@@ -18,6 +19,7 @@ export const useSearch = () => {
   const [searchMachines, setSearchMachines] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [term, setTerm] = useState('');
+
 
   const handleInputChange = ({ target }) => {
     setTerm(target.value);
