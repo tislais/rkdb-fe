@@ -1,16 +1,23 @@
 import Header from './components/Header';
 import Side from './components/Side';
 import Main from './components/Main';
+import MyMachines from './components/MyMachines';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
       <div className={div}>
         <Side />
-        <Main />
+
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/machines" component={MyMachines} />
+        </Switch>
+        
         </div>
-    </>
+    </ Router>
   );
 }
 
