@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { deleteMachine, updateMachine } from '../services/api';
 import { useMachine } from '../state/machines';
@@ -30,9 +30,10 @@ const MyMachineDetails = () => {
   }
 
   const handleSubmit = async (e) => {
-
+    e.preventDefault();
     await updateMachine(id, serial);
     setEditing(false);
+    window.location.reload();
   }
 
   return (
