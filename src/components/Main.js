@@ -6,8 +6,8 @@ const Main = () => {
   return (
     <main className={main}>
       <section className={section}>
-        <h2 className={h2}>rkdb 
-          <span className={span}> Arcadabase</span>
+        <h2 className={h2}>find 
+          <span className={span}> Machine</span>
         </h2>
         <MachinesList />
       </section>

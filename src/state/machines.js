@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { fetchSearchMachine } from '../services/api';
+import { useEffect, useState } from 'react';
+import { fetchRkdbMachines, fetchSearchMachine } from '../services/api';
 
 // export const useMachines = () => {
 //   const [loading, setLoading] = useState(true);
@@ -44,6 +44,14 @@ export const useSearch = () => {
 
 }
 
-export const useSearchResults = () => {
-  
+export const useMyMachines = () => {
+  const [loading, setLoading] = useState(true);
+  const [myMachines, setMyMachines] = useState([]);
+
+  useEffect(() => {
+    fetchRkdbMachines().then(setMyMachines)
+    .finally(setLoading(false));
+  }, []);
+
+  return { myMachines, loading }; 
 }

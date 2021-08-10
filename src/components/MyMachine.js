@@ -1,14 +1,13 @@
 import React from 'react';
 
-const SearchItem = ({ machine, i, onAddButtonClick, setMachine }) => {
-  setMachine(machine);
-
+const MyMachine = ({ machine, i }) => {
+  console.log(machine);
   return (
-    <li key={i} className={li}>
+      <li key={i} className={li}>
       <div className={wrap}>
 
-        { machine.images.length > 0 ? 
-          <img className={img} src={machine.images[0].urls.large} alt={machine.name} /> 
+        { machine.image 
+          ? <img className={img} src={machine.image} alt={machine.name} /> 
           : <div className={noImg}>No Image</div> }
 
         <div className={details}>
@@ -19,7 +18,6 @@ const SearchItem = ({ machine, i, onAddButtonClick, setMachine }) => {
         </div>
         
       </div>
-      <button className={button} onClick={onAddButtonClick}>Add</button>
     </li>
   )
 }
@@ -55,13 +53,6 @@ const details = `
   flex-col
 `;
 
-const button = `
-  border-2
-  px-4
-  py-1
-  h-12
-`;
-
 const noImg = `
   bg-gray-200 
   h-24 
@@ -72,4 +63,4 @@ const noImg = `
   text-gray-400
 `;
 
-export default SearchItem;
+export default MyMachine;
