@@ -17,7 +17,7 @@ const SearchItem = ({ machine, i, onAddButtonClick, setMachine }) => {
           <p>Date of Manufacture: {machine.manufacture_date}</p>
           <p>Type: {machine.type}</p>
         </div>
-        
+
       </div>
       <button className={button} onClick={onAddButtonClick}>Add</button>
     </li>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchRkdbMachines, fetchSearchMachine } from '../services/api';
+import { fetchRkdbMachine, fetchRkdbMachines, fetchSearchMachine } from '../services/api';
 
 // export const useMachines = () => {
 //   const [loading, setLoading] = useState(true);
@@ -54,4 +54,18 @@ export const useMyMachines = () => {
   }, []);
 
   return { myMachines, loading }; 
+}
+
+export const useMachine = (id) => {
+  const [machine, setMyMachine] = useState(null);
+  const [loading, setLoading] = useState(true);
+  console.log(id);
+
+  useEffect(() => {
+    fetchRkdbMachine(id)
+    .then(setMyMachine)
+    .finally(() => setLoading(false));
+  }, [id])
+
+  return { machine, loading };
 }

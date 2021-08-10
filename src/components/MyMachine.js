@@ -1,24 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyMachine = ({ machine, i }) => {
-  console.log(machine);
   return (
+    <Link to={`/machines/${machine.id}`}>
       <li key={i} className={li}>
-      <div className={wrap}>
+        <div className={wrap}>
 
-        { machine.image 
-          ? <img className={img} src={machine.image} alt={machine.name} /> 
-          : <div className={noImg}>No Image</div> }
+          { machine.image 
+            ? <img className={img} src={machine.image} alt={machine.name} /> 
+            : <div className={noImg}>No Image</div> }
 
-        <div className={details}>
-          <h2 className={h2}>{machine.name}</h2>
-          <h3>Manufacturer: {machine.manufacturer.name}</h3>
-          <p>Date of Manufacture: {machine.manufacture_date}</p>
-          <p>Type: {machine.type}</p>
+          <div className={details}>
+            <h2 className={h2}>{machine.name}</h2>
+            <h3>Manufacturer: {machine.manufacturer.name}</h3>
+            <p>Date of Manufacture: {machine.manufacture_date}</p>
+            <p>Type: {machine.type}</p>
+          </div>
+          
         </div>
-        
-      </div>
-    </li>
+      </li>
+    </Link>
   )
 }
 

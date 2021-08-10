@@ -30,7 +30,15 @@ const MachinesList = () => {
 
 
   const MachineElements = displayData.map((item, i) => {
-    return <SearchItem machine={item} i={i} onAddButtonClick={handleAddButtonClick} setMachine={setMachine} /> 
+    return (
+
+        <SearchItem 
+          machine={item} 
+          i={i} 
+          onAddButtonClick={handleAddButtonClick} 
+          setMachine={setMachine} 
+        /> 
+    )
   });
   
 
