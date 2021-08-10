@@ -44,6 +44,13 @@ export const addMachine = async (machine) => {
   return res.body;
 }
 
+export const deleteMachine = async (id) => {
+  const res = await request
+    .delete(`http://localhost:7890/api/v1/machines/${id}`);
+    console.log(res);
+    return res.json();
+}
+
 export const fetchRkdbMachine = async (id) => {
   const res = await fetch(`http://localhost:7890/api/v1/machines/${id}`);
   return res.json();

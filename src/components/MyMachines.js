@@ -6,8 +6,6 @@ const MyMachines = () => {
 
   const { myMachines, loading } = useMyMachines();
   if (loading) return <h1>Loading...</h1>;
-
-  console.log('myMachines.js ', myMachines);
   
   const myMachineElements = myMachines.map((machine, i) => (
     <MyMachine machine={machine} index={i} />

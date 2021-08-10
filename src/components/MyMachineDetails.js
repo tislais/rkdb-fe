@@ -1,13 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { deleteMachine } from '../services/api';
 import { useMachine } from '../state/machines';
 
 const MyMachineDetails = () => {
   const { id } = useParams();
   const { machine, loading } = useMachine(id);
-  console.log(machine);
 
   if(loading) return <h1>Loading...</h1>
+
+  const handleDeleteButtonClick = async () => {
+    await deleteMachine(id);
+  }
 
   return (
     <div className={wrap}>
@@ -23,7 +27,7 @@ const MyMachineDetails = () => {
         <p>Type: {machine.type}</p>
       </div>
       <button>Update Serial Number</button>
-      <button>Remove Machine</button>
+      <button onClick={handleDeleteButtonClick}>Remove Machine</button>
 
     </div>
   )

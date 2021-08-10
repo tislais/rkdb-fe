@@ -59,7 +59,6 @@ export const useMyMachines = () => {
 export const useMachine = (id) => {
   const [machine, setMyMachine] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(id);
 
   useEffect(() => {
     fetchRkdbMachine(id)
